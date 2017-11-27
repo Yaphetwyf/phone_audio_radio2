@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/first_linelayout"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_player_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
+            android:id="@+id/tv_topsimple_radioname"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_height="wrap_content"
+            android:text="@string/radio_name"
+            />
+        <ImageView
+            android:id="@+id/battary_radio"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_battery_10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/system_time"
+            android:textColor="@android:color/white"
+            android:layout_marginRight="8dp"
+            android:text="@string/app_system_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:background="@drawable/bg_player_top_control"
+        android:layout_below="@+id/first_linelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/voice_control"
+            android:background="@drawable/btn_voice_selecter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <SeekBar
+            android:id="@+id/voice_seekbar"
+            android:maxHeight="6dp"
+            android:progress="20"
+            android:minHeight="6dp"
+            android:thumb="@drawable/progress_thumb"
+            android:progressDrawable="@drawable/progress_horizontal"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/switch_player"
+            android:background="@drawable/btn_switch_selecter"
+            android:layout_marginLeft="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:id="@+id/third_linearout"
+        android:layout_above="@+id/four_linearout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/now_voido_player"
+            android:layout_marginLeft="5dp"
+            android:text="@string/app_third_nowtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <SeekBar
+            android:id="@+id/play_seekbar"
+            android:maxHeight="6dp"
+            android:progress="20"
+            android:minHeight="6dp"
+            android:thumb="@drawable/progress_thumb"
+            android:progressDrawable="@drawable/progress_horizontal"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/totle_radio_play"
+            android:layout_marginRight="5dp"
+            android:text="@string/app_end_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/four_linearout"
+        android:gravity="center_vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/back"
+            android:layout_weight="1"
+            android:background="@drawable/btn_exit_selecter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/last"
+            android:layout_weight="1"
+            android:background="@drawable/btn_pre_normal_seleter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/playorpause"
+            android:layout_weight="1"
+            android:background="@drawable/btn_pause_normal_seleter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/next"
+            android:layout_weight="1"
+            android:background="@drawable/btn_next_normal_selecter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/big"
+            android:layout_weight="1"
+            android:background="@drawable/btn_full_screen_normal_seleter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

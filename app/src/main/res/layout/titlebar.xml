@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.yaphet.phone_audio_radio1.view.TitleLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="#ff3097fd"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="55dp">
+    <ImageView
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/ic_topbanner_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_weight="1"
+        android:id="@+id/tv_title_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:textSize="14sp"
+        android:clickable="true"
+        android:textColor="@drawable/text_color_selectr"
+        android:layout_marginLeft="8dp"
+        android:drawableLeft="@drawable/ic_sousuokuang_selecter"
+        android:drawablePadding="3dp"
+        android:background="@drawable/ic_search_background"
+        />
+<RelativeLayout
+    android:id="@+id/game_dom"
+    android:layout_marginLeft="5dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_title_word"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_topbanner_game"
+        />
+    <ImageView
+        android:id="@+id/id_dot"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_alignRight="@+id/tv_title_word"
+        android:background="@drawable/ic_dot"
+        />
+</RelativeLayout>
+    <ImageView
+        android:id="@+id/iv_record"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_topbanner_record"
+        />
+</com.example.yaphet.phone_audio_radio1.view.TitleLayout>

@@ -5,12 +5,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yaphet.phone_audio_radio1.MainActivity">
+    android:orientation="vertical"
+    tools:context="com.example.yaphet.phone_audio_radio1.activity.MainActivity">
+    <include layout="@layout/titlebar"/>
+    <FrameLayout
+        android:id="@+id/Fl_main_centerFramelayout"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        />
+    </FrameLayout>
+    <RadioGroup
+        android:orientation="horizontal"
+        android:id="@+id/RG_main_radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/RB_main_radiobutton1"
+            android:text="@string/first"
+            android:drawableTop="@drawable/ic_tab_audio_selector"
+            style="@style/RadioButton_style"
+            />
+        <RadioButton
+            android:id="@+id/RB_main_radiobutton2"
+            android:text="@string/second"
+            android:drawableTop="@drawable/ic_tab_video_seletor"
+            style="@style/RadioButton_style"
+             />
+        <RadioButton
+            android:id="@+id/RB_main_radiobutton3"
+            android:text="@string/third"
+            android:drawableTop="@drawable/ic_tab_netvideo_selector"
+            style="@style/RadioButton_style" />
+        <RadioButton
+            android:id="@+id/RB_main_radiobutton4"
+            android:text="@string/four"
+            android:drawableTop="@drawable/ic_tab_netaudio_seletor"
+            style="@style/RadioButton_style"
+             />
+    </RadioGroup>
+
 
 </LinearLayout>
