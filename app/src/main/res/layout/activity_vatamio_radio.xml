@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:gravity="center"
+    tools:context="com.example.yaphet.phone_audio_radio1.activity.SystemRadioActivity">
+
+
+    <com.example.yaphet.phone_audio_radio1.view.VitamioVideoViewTest
+        android:id="@+id/Vv_Vitamiovidio_system"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <include
+        android:id="@+id/radio_controler"
+        layout="@layout/activity_radio_self" />
+
+    <include
+        android:id="@+id/Plyer_buffer"
+        layout="@layout/buffer" />
+
+    <include
+        android:id="@+id/loading_net"
+        layout="@layout/loading_net" />
+
+</RelativeLayout>

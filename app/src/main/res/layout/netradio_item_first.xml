@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="120dp"
+        android:layout_height="80dp">
+        <ImageView
+            android:scaleType="fitXY"
+            android:src="@drawable/video_default"
+            android:id="@+id/net_picture"
+            android:layout_width="120dp"
+            android:layout_height="80dp" />
+        <ImageView
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/center_collect_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_marginLeft="8dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp">
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/movename"
+            android:text="电影名字"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="30dp"
+            android:id="@+id/Moveintroduce"
+            android:text="电影简介"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp">
+        <TextView
+            android:text="00:35"
+            android:id="@+id/moive_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -2,6 +2,8 @@ package com.example.yaphet.phone_audio_radio1.activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -13,6 +15,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -28,6 +31,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends FragmentActivity {
+    @Bind(R.id.tv_title_search)
+    TextView textViewsearch;
+
     TextView tvTitleTextView;
     @Bind(R.id.Fl_main_centerFramelayout)
     FrameLayout FlMainCenterFramelayout;
@@ -48,12 +54,21 @@ public class MainActivity extends FragmentActivity {
     private void initLitener() {
         RGMainRadiogroup.setOnCheckedChangeListener(new MyRgListener());
         RGMainRadiogroup.check(R.id.RB_main_radiobutton1);
+        textViewsearch.setOnClickListener(new MySearchListener());
     }
     private void initFragment() {
         framentLists.add(new FirstFragment());
         framentLists.add(new SecondFragment());
         framentLists.add(new ThirdFragment());
         framentLists.add(new FourFrament());
+    }
+
+    private class MySearchListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            Toast.makeText(MainActivity.this, "语音搜索", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(MainActivity.this,Reach_voiceActivity.class));
+        }
     }
     private class MyRgListener implements RadioGroup.OnCheckedChangeListener {
         @Override
@@ -103,15 +118,23 @@ public class MainActivity extends FragmentActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode==KeyEvent.KEYCODE_BACK) {
+        if(keyCode==KeyEvent.KEYCODE_BACK) {//也可以用hander
             if((System.currentTimeMillis()-lasttime)>2000) {
                 lasttime=System.currentTimeMillis();
                 Toast.makeText(MainActivity.this, "再按一次退出", Toast.LENGTH_SHORT).show();
             }else {
-                System.exit(0);
+                //NotificationManager notificationManager= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                //notificationManager.cancelAll();
+                //System.exit(0);//停掉进程所有
+                return super.onKeyDown(keyCode, event);
             }
           return true;  
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

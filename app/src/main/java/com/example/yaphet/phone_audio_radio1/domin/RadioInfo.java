@@ -1,10 +1,12 @@
 package com.example.yaphet.phone_audio_radio1.domin;
 
+import java.io.Serializable;
+
 /**
  * Created by WYF on 2017/11/17.
  */
 
-public class RadioInfo {
+public class RadioInfo implements Serializable {
     private String artist;
     private String adressAbso;
     private String displayName;
@@ -64,7 +66,7 @@ public class RadioInfo {
 
     @Override
     public String toString() {
-        return "RadioInfo{" +
+        return "RadioInfoNet{" +
                 "artist='" + artist + '\'' +
                 ", adressAbso='" + adressAbso + '\'' +
                 ", displayName='" + displayName + '\'' +

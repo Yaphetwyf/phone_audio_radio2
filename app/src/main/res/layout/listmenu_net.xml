@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.yaphet.phone_audio_radio1.view.XListView
+        android:id="@+id/lv_first_rudio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.example.yaphet.phone_audio_radio1.view.XListView>
+
+    <TextView
+        android:textColor="@android:color/black"
+        android:id="@+id/tv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/center_title_net"/>
+    <ProgressBar
+        android:layout_alignParentBottom="true"
+        android:id="@+id/PB_press_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="180dp"
+        />
+
+</RelativeLayout>

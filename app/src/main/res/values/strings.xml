@@ -4,7 +4,7 @@
     <string name="title">标题</string>
     <string name="first">热门视频</string>
     <string name="second">本地音乐</string>
-    <string name="third">下载</string>
+    <string name="third">网络视频</string>
     <string name="four">个人中心</string>
     <string name="search">全网搜索</string>
     <string name="center_title">视频列表正在加载中...</string>
@@ -12,4 +12,20 @@
     <string name="app_system_time">04:22:22</string>
     <string name="app_third_nowtime">00:05</string>
     <string name="app_end_time">00:35</string>
+    <string name="radio_name_system">手机影音（系统推荐）</string>
+    <string name="buffer">缓存中...30kb/s</string>
+    <string name="center_title_net">网络视频加载中...</string>
+    <string name="btn_scroll_view">ScrollView demo</string>
+    <string name="btn_list_view">ListView demo</string>
+
+    <string name="header_hint_refresh_normal">Pull to refresh</string>
+    <string name="header_hint_refresh_ready">Release to refresh</string>
+    <string name="header_hint_refresh_loading">Refreshing&#8230;</string>
+    <string name="header_hint_refresh_time">Time：</string>
+    <string name="footer_hint_load_normal">Load more</string>
+    <string name="footer_hint_load_ready">Release to load more</string>
+    <string name="search_voice">语音搜索</string>
+    <string name="pref_key_translate">translate</string>
+    <string name="pref_key_iat_show">iat_show</string>
+    <string name="text_begin">请开始说话…</string>
 </resources>

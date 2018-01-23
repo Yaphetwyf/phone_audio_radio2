@@ -46,7 +46,6 @@
         <SeekBar
             android:id="@+id/voice_seekbar"
             android:maxHeight="6dp"
-            android:progress="20"
             android:minHeight="6dp"
             android:thumb="@drawable/progress_thumb"
             android:progressDrawable="@drawable/progress_horizontal"
@@ -78,7 +77,6 @@
         <SeekBar
             android:id="@+id/play_seekbar"
             android:maxHeight="6dp"
-            android:progress="20"
             android:minHeight="6dp"
             android:thumb="@drawable/progress_thumb"
             android:progressDrawable="@drawable/progress_horizontal"

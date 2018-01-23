@@ -20,8 +20,10 @@ import java.util.List;
 
 public class RadioAdapter extends BaseAdapter {
     private List<RadioInfo> radioInfos;
-    public RadioAdapter( List<RadioInfo> radioInfoss) {
+    private Boolean isvideo=false;
+    public RadioAdapter( List<RadioInfo> radioInfoss,Boolean isvideo) {
         this.radioInfos=radioInfoss;
+        this.isvideo=isvideo;
     }
 
     @Override
@@ -39,7 +41,7 @@ public class RadioAdapter extends BaseAdapter {
 
         return 0;
     }
-
+    String stringForTime;
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -48,10 +50,10 @@ public class RadioAdapter extends BaseAdapter {
         if(convertView==null) {
             view = View.inflate(MyApplication.getContext(), R.layout.radio_item_first, null);
             viewHolder=new ViewHolder();
-            viewHolder.imageView=view.findViewById(R.id.IV_item_radio);
-            viewHolder.textView1=view.findViewById(R.id.tv_radio_name);
-            viewHolder.textView2=view.findViewById(R.id.tv_radio_time);
-            viewHolder.textView3=view.findViewById(R.id.tv_radio_size);
+            viewHolder.imageView= (ImageView) view.findViewById(R.id.IV_item_radio);
+            viewHolder.textView1= (TextView) view.findViewById(R.id.tv_radio_name);
+            viewHolder.textView2= (TextView) view.findViewById(R.id.tv_radio_time);
+            viewHolder.textView3= (TextView) view.findViewById(R.id.tv_radio_size);
             view.setTag(viewHolder);
         }else{
             view= convertView;
@@ -62,8 +64,8 @@ public class RadioAdapter extends BaseAdapter {
         viewHolder.textView1.setText(radioInfo.getDisplayName());
 
         Utils utils = new Utils();
-        viewHolder.textView2.setText(utils.stringForTime(Integer.parseInt(radioInfo.getTime())));
 
+        viewHolder.textView2.setText(utils.stringForTime(Integer.parseInt(radioInfo.getTime())));
 
         String radioSize = radioInfos.get(position).getRadioSize();
         long parseLong;
@@ -72,7 +74,9 @@ public class RadioAdapter extends BaseAdapter {
         }else{
             parseLong=0;
         }
-
+        if(!isvideo) {
+            viewHolder.imageView.setImageResource(R.drawable.music_default_bg);
+        }
         viewHolder.textView3.setText(Formatter.formatFileSize(MyApplication.getContext(),parseLong));
         return view;
     }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
@@ -26,6 +27,7 @@ import com.example.yaphet.phone_audio_radio1.domin.RadioInfo;
 import com.example.yaphet.phone_audio_radio1.util.LogUtil;
 import com.example.yaphet.phone_audio_radio1.util.MyApplication;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,9 +47,8 @@ public class FirstFragment extends BaseFrament {
             if(radioInfos!=null&&radioInfos.size()>0) {
 
                 //ProgressBar消失
-
                 //显示数据
-               lv_first_rudio.setAdapter(new RadioAdapter(radioInfos));
+               lv_first_rudio.setAdapter(new RadioAdapter(radioInfos,true));
                 //让进度条消失
                 PB_press_center.setVisibility(View.GONE);
                 lv_first_rudio.setOnItemClickListener(new MyListViewAdapter());
@@ -62,14 +63,13 @@ public class FirstFragment extends BaseFrament {
     @Override
     protected View initView() {
         View view = View.inflate(MyApplication.getContext(), R.layout.listmenu, null);
-        lv_first_rudio = view.findViewById(R.id.lv_first_rudio);
-        tv_text = view.findViewById(R.id.tv_text);
-        PB_press_center = view.findViewById(R.id.PB_press_center);
+        lv_first_rudio = (ListView) view.findViewById(R.id.lv_first_rudio);
+        tv_text = (TextView) view.findViewById(R.id.tv_text);
+        PB_press_center = (ProgressBar) view.findViewById(R.id.PB_press_center);
 
         Log.e("TAG", "FirstFragment被初始化了");
         return view;
     }
-
     @Override
     protected void initdata() {
         super.initdata();
@@ -93,15 +93,15 @@ public class FirstFragment extends BaseFrament {
                     while( cursor.moveToNext()) {
                         RadioInfo radioInfo = new RadioInfo();
                         radioInfos.add(radioInfo);
-                        String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
+                        String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.ARTIST));
                         radioInfo.setArtist(artist);
-                        String adressAbso = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+                        String adressAbso = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA));
                         radioInfo.setAdressAbso(adressAbso);
-                        String displayName = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DISPLAY_NAME));
+                        String displayName = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DISPLAY_NAME));
                         radioInfo.setDisplayName(displayName);
-                        String radioSize = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.SIZE));//视频的大小
+                        String radioSize = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.SIZE));//视频的大小
                         radioInfo.setRadioSize(radioSize);
-                        String time = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));//视频的总时长
+                        String time = cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DURATION));//视频的总时长
                         radioInfo.setTime(time);
 
                         handler.sendEmptyMessage(1);
@@ -119,7 +119,7 @@ public class FirstFragment extends BaseFrament {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             RadioInfo radioInfo = radioInfos.get(position);
-            Toast.makeText(MyApplication.getContext(), radioInfo.getAdressAbso(), Toast.LENGTH_SHORT).show();
+           // Toast.makeText(MyApplication.getContext(), radioInfo.getAdressAbso(), Toast.LENGTH_SHORT).show();
 
           /*  //1.调起系统所有的播放器，Intent.ACTION_VIEW(用隐士意图)
             Intent intent=new Intent(Intent.ACTION_VIEW);
@@ -129,15 +129,19 @@ public class FirstFragment extends BaseFrament {
 
             //2.调起系统api所组成的播放器
 
-            //显示意图调用系统API写的播放器
-            Intent intentmyRadio=new Intent(MyApplication.getContext(),SystemRadioActivity.class);
-            intentmyRadio.setDataAndType(Uri.parse(radioInfo.getAdressAbso()),"video/*");
-            MyApplication.getContext().startActivity(intentmyRadio);
-
-
+            //显示意图调用系统API写的播放器,这种情况传递的是单一的地址
+          /*  Intent intentmyRadio=new Intent(MyApplication.getContext(),SystemRadioActivity.class);
+            intentmyRadio.setDataAndType(Uri.parse(radioInfo.getAdressAbso()),"video*//*");
+            MyApplication.getContext().startActivity(intentmyRadio);*/
+            //传递视频列表
+            Intent intent=new Intent(MyApplication.getContext(),SystemRadioActivity.class);
+            Bundle bundle=new Bundle();
+            bundle.putSerializable("vadio_list",(Serializable)radioInfos);
+            intent.putExtras(bundle);//传递视频列表
+            intent.putExtra("position",position);
+            MyApplication.getContext().startActivity(intent);
         }
     }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

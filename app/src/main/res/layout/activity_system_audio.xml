@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/base_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.yaphet.phone_audio_radio1.activity.SystemAudioActivity">
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/iv_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/animation_list"
+            />
+        <com.example.yaphet.phone_audio_radio1.view.BaseVisualizerView
+            android:id="@+id/baseVisualizerView"
+            android:layout_centerHorizontal="true"
+            android:layout_width="200dp"
+            android:layout_height="40dp" />
+        <TextView
+            android:id="@+id/tv_artist"
+            android:text="马云"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:text="我的家乡"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="8dp"
+            android:text="00:00/30:00"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+
+        <SeekBar
+            android:id="@+id/seekbar_audio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_weight="1"
+            android:maxHeight="5dp"
+            android:minHeight="5dp"
+            android:progressDrawable="@drawable/audio_progress_horizontal"
+            android:thumb="@drawable/seek_thumb" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_audio_playmode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_audio_playmode_normal_selector" />
+
+            <Button
+                android:id="@+id/btn_audio_pre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_audio_pre_selector" />
+
+
+            <Button
+                android:id="@+id/btn_audio_start_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_audio_pause_selector" />
+
+            <Button
+                android:id="@+id/btn_audio_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_audio_next_selector" />
+
+            <Button
+                android:id="@+id/btn_lyrc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_lyrc_selector" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <com.example.yaphet.phone_audio_radio1.view.ShowLyricView
+        android:id="@+id/showlyricview"
+        android:layout_below="@+id/rl_top"
+        android:layout_above="@+id/ll_bottom"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        />
+</RelativeLayout>
